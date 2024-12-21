@@ -2,7 +2,9 @@
 name = "morse"
 version = "0.1.0"
 edition = "2021"
+description = "Play text messages as audio Morse code transmissions"
 
 [dependencies]
 pulse = { version = "2.0", package = "libpulse-binding" }
 psimple = { version = "2.0", package = "libpulse-simple-binding" }
+clap = { version = "4.5.13", features = ["derive"] }

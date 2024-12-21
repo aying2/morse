@@ -82,18 +82,14 @@ pub fn write_silence(simple: &Simple, dur: f32) -> Result<(), PAErr> {
 #[macro_export]
 macro_rules! panic_pa_error {
     ($unused:ident) => {
-        |err| panic!("{}", err.to_string().expect("PAErr to_string failed"))
+        //|err| panic!("{}", err.to_string().expect("PAErr to_string failed"))
+        |err| panic!("[ERROR] PulseAudio failed: {}", err)
     };
 }
 
 #[macro_export]
 macro_rules! warn_pa_error {
     ($unused:ident) => {
-        |err| {
-            println!(
-                "[WARNING] {}",
-                err.to_string().expect("PAErr to_string failed")
-            )
-        }
+        |err| eprintln!("[WARNING] PulseAudio failed: {}", err)
     };
 }
